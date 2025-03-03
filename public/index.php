@@ -1,11 +1,12 @@
 <?php 
 // включение и выполнение файла в текущем скрипте
-//require_once ("../app/Student.php");
-require_once ("../app/print_functions.php");
+require_once ("../app/Student.php");
+//require_once '../vendor/autoload.php';
+// require_once "../app/Student.php";
+// require_once "../app/BankAccount.php";
 
-use App\Student;
-require_once '../vendor/autoload.php';
-
+use App\Student; 
+use App\BankAccount;
 
 $student1 = new Student();
 $student1->name = "Иван";
@@ -13,6 +14,15 @@ $student1->age = 25;
 
 echo $student1->greet();
 $student1->printObject();
+
+$bankAccount1 = new BankAccount();
+$bankAccount1->owner = "Иван";
+$bankAccount1->balance = 1000;
+$bankAccount1->accountNumber = "1234567890";
+$bankAccount1->currency = "руб.";
+
+$bankAccount1->displayAccountInfo();
+
 ?>
 
 <!DOCTYPE html>
