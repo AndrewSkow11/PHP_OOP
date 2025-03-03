@@ -1,9 +1,8 @@
 <?php 
 // включение и выполнение файла в текущем скрипте
-require_once ("../app/Student.php");
-//require_once '../vendor/autoload.php';
-// require_once "../app/Student.php";
-// require_once "../app/BankAccount.php";
+require_once '../vendor/autoload.php';
+require_once "../app/Student.php";
+require_once "../app/BankAccount.php";
 
 use App\Student; 
 use App\BankAccount;
