@@ -1,26 +1,38 @@
 <?php 
 // включение и выполнение файла в текущем скрипте
 require_once '../vendor/autoload.php';
-require_once "../app/Student.php";
-require_once "../app/BankAccount.php";
-
 use App\Student; 
 use App\BankAccount;
+use App\Rectangle;
+use App\Circle;
 
-$student1 = new Student();
-$student1->name = "Иван";
-$student1->age = 25;
+$student1 = new Student("Иван", 25, "МГУ");
+$student2 = new Student("Марья", 25, "РГГУ");
+$student1->setUniversity("БГУ");
+$student2->setUniversity("БЧУ");
 
 echo $student1->greet();
 $student1->printObject();
+echo $student2->printObject();
 
-$bankAccount1 = new BankAccount();
-$bankAccount1->owner = "Иван";
-$bankAccount1->balance = 1000;
-$bankAccount1->accountNumber = "1234567890";
-$bankAccount1->currency = "руб.";
-
+$bankAccount1 = new BankAccount(
+    "Иван",
+    1234,
+    "1234567890",
+    "$"
+);
 $bankAccount1->displayAccountInfo();
+
+$bankAccount1->deposit(1000);
+$bankAccount1->withdraw(500);
+$bankAccount1->displayAccountInfo();
+
+$myRectangle = new Rectangle("Чёрный квадрат", 25, 25);
+$myRectangle->printRectangleInfo();
+
+
+$myCircle = new Circle("Синий круг", 10);
+$myCircle->printCircleInfo();
 
 ?>
 
@@ -88,6 +100,16 @@ $bankAccount1->displayAccountInfo();
         используются в нашем коде. 
         Используется команда <i>% composer dump-autoload</i>
     </p>
+    <h2>Наследование extends</h2>
+    <h2>6/13 private, protected, public</h2>
+    <h3>Модифакотры (уровни) доступа</h3>
+    <p>
+        <i>private</i> - доступно только внутри текущего класса <br>
+        <i>protected</i> - доступно в текущем классе и в его наследниках <br>
+        <i>public</i> - доступно из любого места в любом классе <br>
+    </p>
+    <h2>07/13. Геттеры и сеттеры getters, setters</h2>
+    
 </body>
 
 </html>
