@@ -3,7 +3,7 @@
 // пространство имён 
 namespace App;
 
-class Student extends Person{
+class Student extends Person implements Info, Test{
     public $university;
 
     public function __construct($name, $age, $university) {
@@ -36,6 +36,10 @@ class Student extends Person{
 
     public function introduce(){
         return "Привет! Я студент " . $this->getUniversity() . ".";
+    }
+
+    public function testing_function(){
+        echo "Тестовая функция";
     }
 }
 
