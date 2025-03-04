@@ -20,6 +20,27 @@ var_dump($json_decoded);
 
 echo "<br>";
 
+$xmlString = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<person>
+    <name>Иван</name>
+    <age>30</age>
+    <isStudent>false</isStudent>
+    <skills>
+        <skill>PHP</skill>
+        <skill>JavaScript</skill>
+        <skill>HTML</skill>
+    </skills>
+    <address>
+        <city>Москва</city>
+        <country>Россия</country>
+    </address>
+</person>
+XML;
+
+
 $xml_format = new XMLFormat();
-$xml_encoded = $xml_format->encode($my_array);
-echo "XML encoded data: $xml_encoded <br>";
+$xml_encoded = $xml_format->encode($xmlString);
+var_dump($xml_encoded);
+$xml_decoded = $xml_format->decode($xmlString);
+var_dump($xml_decoded);
