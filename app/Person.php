@@ -1,11 +1,14 @@
 <?php 
 namespace App;
 
-class Person {
-    public $name;
-    public $age;
+abstract class Person {
+    protected $name;
+    protected $age;
 
     protected $prodectedProperty = 'ProdectedProperty';
+
+    // у абстрактных методов нет реализации
+    public abstract function introduce();
 
     public function __construct($name, $age){
         $this->name = $name;

@@ -11,6 +11,12 @@ $student2 = new Student("Марья", 25, "РГГУ");
 $student1->setUniversity("БГУ");
 $student2->setUniversity("БЧУ");
 
+echo "<div style=\"border: 1px solid red;\"";
+echo $student1->introduce();
+echo "<br>";
+echo $student2->introduce();
+echo "</div>";
+
 echo $student1->greet();
 $student1->printObject();
 echo $student2->printObject();
@@ -46,6 +52,7 @@ $myCircle->printCircleInfo();
 </head>
 
 <body>
+    
     <h1>ООП в PHP</h1>
     <h2>Список тем:</h2>
     <ol>
@@ -109,7 +116,19 @@ $myCircle->printCircleInfo();
         <i>public</i> - доступно из любого места в любом классе <br>
     </p>
     <h2>07/13. Геттеры и сеттеры getters, setters</h2>
-    
+    <h2>08/13. Абстрактные классы и методы</h2>
+    <p>
+        Абстрактные методы позволяют создавать шаблоны классов и методов. %
+        Абстрактный класс будет содержать абстрактные методы, которые 
+        будут реализовываться уже в дочерних классах. 
+        <strong>
+            Ключевая особенность в том, что от абстрактных классов нельзя 
+            создать объекты напрямую, т.е. от них можно наследоваться 
+            только другим классам. От которых уже будет создаваться объект. 
+        </strong>
+    </p>
+
+    <p><a href="vehicle.php">ДЗ по абстрактным классам</a></p>
 </body>
 
 </html>

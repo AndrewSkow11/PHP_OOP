@@ -1,51 +1,52 @@
-<?php 
+<?php
 
 namespace App;
 
-class User{
+class User
+{
     private $username;
     private $email;
     private $password;
-    public function __construct($username, $email, $password){
+    public function __construct($username, $email, $password)
+    {
         $this->username = $username;
         $this->email = $email;
-        $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->password = $password;
     }
-    public function getUsername(){
+    public function getUsername()
+    {
         return $this->username;
     }
-    public function getEmail(){
+    public function getEmail()
+    {
         return $this->email;
     }
-    public function getPassword(){
+    public function getPassword()
+    {
         return $this->password;
     }
-    public function setUsername($username){
-        if ($username !== "") $this->username = $username;
+    public function setUsername($username)
+    {
+        if ($username !== "") {
+            $this->username = $username;
+        } else {
+            echo "Username cannot be empty";
+        }
     }
 
-    public function setEmail($email){
-        if ($email !== "") $this->email = $email;
+    public function setEmail($email)
+    {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->email = $email;
+        } else echo "Invalid email format";
     }
 
-    public function setPassword($password){
-        $this->password = password_hash($password, PASSWORD_BCRYPT);
+    public function setPassword($password)
+    {
+        if (strlen($password) > 6) {
+            $this->password = $password;
+        } else {
+            echo "Password must be at least 8 characters long";
+        }
     }
-
-    
-    public function validateEmail($email){
-        return filter_var($email, FILTER_VALIDATE_EMAIL);
-    }
-    public function validateUsername($username){
-        return preg_match("/^[a-zA-Z0-9_]{3,}$/", $username);
-    }
-    public function validatePassword($password){
-        return strlen($password) >= 8;
-    }
-    public function checkPassword($password, $hashedPassword){
-        return password_verify($password, $hashedPassword);
-    }
-
-    
-    
 }

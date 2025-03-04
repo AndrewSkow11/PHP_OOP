@@ -33,6 +33,10 @@ class Student extends Person{
         print_r($this);
         echo "</pre>";
     }
+
+    public function introduce(){
+        return "Привет! Я студент " . $this->getUniversity() . ".";
+    }
 }
 
 // public - публичные свойства и методы доступны из любого места кода
